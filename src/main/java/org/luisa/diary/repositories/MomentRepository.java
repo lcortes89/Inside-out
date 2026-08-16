@@ -66,17 +66,15 @@ public class MomentRepository {
     }
 
     /**
-     * Returns the moments that happened in the given month and year.
+     * Returns the moments that happened on the given date.
      *
-     * @param month the month to filter by (1-12)
-     * @param year the year to filter by
-     * @return the list of moments that happened in that month
+     * @param date the date to filter by
+     * @return the list of moments that happened on that date
      */
-    public List<Moment> findByMonth(int month, int year) {
+    public List<Moment> findByDate(LocalDate date) {
         List<Moment> result = new ArrayList<>();
         for (Moment moment : this.moments.values()) {
-            LocalDate momentDate = moment.getMomentDate();
-            if (momentDate.getMonthValue() == month && momentDate.getYear() == year) {
+            if (moment.getMomentDate().equals(date)) {
                 result.add(moment);
             }
         }

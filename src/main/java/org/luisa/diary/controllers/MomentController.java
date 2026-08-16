@@ -77,25 +77,14 @@ public class MomentController {
     }
 
     /**
-     * Filters moments by the raw month typed by the user.
+     * Filters moments by the raw date typed by the user.
      *
-     * @param rawMonthYear the month and year as typed by the user (mm/yyyy)
-     * @return the list of moments that happened in that month
+     * @param rawDate the date as typed by the user (dd/mm/yyyy)
+     * @return the list of moments that happened on that date
      */
-    public List<Moment> filterByMonth(String rawMonthYear) {
-        String[] parts = rawMonthYear == null ? new String[0] : rawMonthYear.trim().split("/");
-        if (parts.length != 2) {
-            throw new IllegalArgumentException("El mes debe tener el formato mm/aaaa.");
-        }
-        int month;
-        int year;
-        try {
-            month = Integer.parseInt(parts[0]);
-            year = Integer.parseInt(parts[1]);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("El mes debe tener el formato mm/aaaa.");
-        }
-        return this.momentService.filterByMonth(month, year);
+    public List<Moment> filterByDate(String rawDate) {
+        LocalDate date = parseDate(rawDate);
+        return this.momentService.filterByDate(date);
     }
 
     /**

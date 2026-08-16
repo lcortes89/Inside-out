@@ -123,9 +123,9 @@ class ConsoleViewTest {
     }
 
     @Test
-    void filteringByMonthWithNoResultsPrintsAMessage() {
-        when(this.momentController.filterByMonth("05/2024")).thenReturn(List.of());
-        ConsoleView view = newView("4\n2\n05/2024\n5\n");
+    void filteringByDateWithNoResultsPrintsAMessage() {
+        when(this.momentController.filterByDate("01/05/2024")).thenReturn(List.of());
+        ConsoleView view = newView("4\n2\n01/05/2024\n5\n");
 
         view.run();
 

@@ -77,14 +77,14 @@ class MomentRepositoryTest {
     }
 
     @Test
-    void findByMonthReturnsOnlyMomentsInThatMonthAndYear() {
-        Moment mayMoment = this.momentRepository.save(newMoment(Emotion.ALEGRIA, LocalDate.of(2024, 5, 15)));
-        this.momentRepository.save(newMoment(Emotion.TRISTEZA, LocalDate.of(2024, 6, 15)));
+    void findByDateReturnsOnlyMomentsOnThatExactDate() {
+        Moment matching = this.momentRepository.save(newMoment(Emotion.ALEGRIA, LocalDate.of(2024, 5, 15)));
+        this.momentRepository.save(newMoment(Emotion.TRISTEZA, LocalDate.of(2024, 5, 16)));
         this.momentRepository.save(newMoment(Emotion.IRA, LocalDate.of(2023, 5, 15)));
 
-        List<Moment> result = this.momentRepository.findByMonth(5, 2024);
+        List<Moment> result = this.momentRepository.findByDate(LocalDate.of(2024, 5, 15));
 
-        assertThat(result, contains(mayMoment));
+        assertThat(result, contains(matching));
     }
 
     private Moment newMoment(Emotion emotion, LocalDate momentDate) {

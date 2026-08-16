@@ -80,22 +80,12 @@ class MomentServiceTest {
     }
 
     @Test
-    void filterByMonthDelegatesToRepositoryWhenMonthIsValid() {
-        List<Moment> moments =
-                List.of(new Moment("Title", "Description", Emotion.ALEGRIA, LocalDate.of(2024, 5, 1)));
-        when(this.momentRepository.findByMonth(5, 2024)).thenReturn(moments);
+    void filterByDateDelegatesToRepository() {
+        LocalDate date = LocalDate.of(2024, 5, 1);
+        List<Moment> moments = List.of(new Moment("Title", "Description", Emotion.ALEGRIA, date));
+        when(this.momentRepository.findByDate(date)).thenReturn(moments);
 
-        assertThat(this.momentService.filterByMonth(5, 2024), is(equalTo(moments)));
-    }
-
-    @Test
-    void filterByMonthThrowsWhenMonthIsBelowRange() {
-        assertThrows(IllegalArgumentException.class, () -> this.momentService.filterByMonth(0, 2024));
-    }
-
-    @Test
-    void filterByMonthThrowsWhenMonthIsAboveRange() {
-        assertThrows(IllegalArgumentException.class, () -> this.momentService.filterByMonth(13, 2024));
+        assertThat(this.momentService.filterByDate(date), is(equalTo(moments)));
     }
 
 }

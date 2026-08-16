@@ -22,7 +22,7 @@ public class ConsoleView {
     private static final int OPTION_EXIT = 5;
 
     private static final int FILTER_BY_EMOTION = 1;
-    private static final int FILTER_BY_MONTH = 2;
+    private static final int FILTER_BY_DATE = 2;
 
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -66,7 +66,7 @@ public class ConsoleView {
     private void printMenu() {
         System.out.println();
         System.out.println("+=========================================+");
-        System.out.println("|          -`´- MI DIARIO -`´-            |");
+        System.out.println("|          -` ́- MI DIARIO -` ́-            |");
         System.out.println("+=========================================+");
         System.out.println("|  1. Añadir momento                      |");
         System.out.println("|-----------------------------------------|");
@@ -78,7 +78,7 @@ public class ConsoleView {
         System.out.println("|-----------------------------------------|");
         System.out.println("|  5. Salir                               |");
         System.out.println("+=========================================+");
-        System.out.print("Elige una opción: ");
+        System.out.print("Seleccione una opción: ");
     }
 
     private void printError(String message) {
@@ -108,7 +108,7 @@ public class ConsoleView {
 
     private LocalDate readValidDate() {
         while (true) {
-            System.out.print("Ingresa la fecha (dd/mm/yyyy): ");
+            System.out.print("Ingresa la fecha (dd/mm/year): ");
             String rawDate = this.scanner.nextLine();
             try {
                 return this.momentController.parseDate(rawDate);
@@ -139,7 +139,7 @@ public class ConsoleView {
     }
 
     private void deleteMoment() {
-        System.out.print("Ingrese el identificador del momento a eliminar: ");
+        System.out.print("Ingresa el identificador del momento: ");
         String rawId = this.scanner.nextLine();
         try {
             boolean deleted = this.momentController.deleteMoment(rawId);
@@ -154,19 +154,20 @@ public class ConsoleView {
     }
 
     private void filterMoments() {
-        System.out.println("1. Filtrar por emoción");
-        System.out.println("2. Filtrar por mes");
-        System.out.print("Elige una opción: ");
+        System.out.println("Filtrar por ...:");
+        System.out.println("1. Emoción");
+        System.out.println("2. Fecha");
+        System.out.print("Ingrese una opción: ");
         int option = readInt("");
         try {
             List<Moment> moments;
             if (option == FILTER_BY_EMOTION) {
                 String rawEmotion = readEmotionOption();
                 moments = this.momentController.filterByEmotion(rawEmotion);
-            } else if (option == FILTER_BY_MONTH) {
-                System.out.print("Ingresa el mes y el año (mm/yyyy): ");
-                String rawMonthYear = this.scanner.nextLine();
-                moments = this.momentController.filterByMonth(rawMonthYear);
+            } else if (option == FILTER_BY_DATE) {
+                System.out.print("Ingresa la fecha (dd/mm/year): ");
+                String rawDate = this.scanner.nextLine();
+                moments = this.momentController.filterByDate(rawDate);
             } else {
                 printError("Opción no válida.");
                 return;
@@ -182,16 +183,17 @@ public class ConsoleView {
     }
 
     private String readEmotionOption() {
-        System.out.println("Elige una emoción:");
+        System.out.println("Selecciona una emoción:");
         Emotion[] emotions = Emotion.values();
         for (int i = 0; i < emotions.length; i++) {
             System.out.println((i + 1) + ". " + emotionDisplayName(emotions[i]));
         }
-        System.out.print("Opción: ");
+        System.out.print("Ingrese su opción: ");
         return this.scanner.nextLine();
     }
 
     private void printMoments(List<Moment> moments) {
+        System.out.println("Lista de momentos vividos:");
         for (Moment moment : moments) {
             System.out.println(moment.getId() + ". Ocurrio el: " + moment.getMomentDate().format(DATE_FORMAT)
                     + ". Título: " + moment.getTitle()

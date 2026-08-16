@@ -81,22 +81,17 @@ class MomentControllerTest {
     }
 
     @Test
-    void filterByMonthParsesRawMonthYearAndDelegates() {
-        List<Moment> moments =
-                List.of(new Moment("Title", "Description", Emotion.ALEGRIA, LocalDate.of(2024, 5, 1)));
-        when(this.momentService.filterByMonth(5, 2024)).thenReturn(moments);
+    void filterByDateParsesRawDateAndDelegates() {
+        LocalDate date = LocalDate.of(2024, 5, 1);
+        List<Moment> moments = List.of(new Moment("Title", "Description", Emotion.ALEGRIA, date));
+        when(this.momentService.filterByDate(date)).thenReturn(moments);
 
-        assertThat(this.momentController.filterByMonth("05/2024"), is(equalTo(moments)));
+        assertThat(this.momentController.filterByDate("01/05/2024"), is(equalTo(moments)));
     }
 
     @Test
-    void filterByMonthThrowsWhenFormatIsInvalid() {
-        assertThrows(IllegalArgumentException.class, () -> this.momentController.filterByMonth("mayo-2024"));
-    }
-
-    @Test
-    void filterByMonthThrowsWhenPartsAreNotNumeric() {
-        assertThrows(IllegalArgumentException.class, () -> this.momentController.filterByMonth("ab/2024"));
+    void filterByDateThrowsWhenFormatIsInvalid() {
+        assertThrows(IllegalArgumentException.class, () -> this.momentController.filterByDate("2024-05-01"));
     }
 
     @Test

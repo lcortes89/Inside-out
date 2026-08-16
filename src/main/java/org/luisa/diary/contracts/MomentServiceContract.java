@@ -46,11 +46,10 @@ public interface MomentServiceContract {
     List<Moment> filterByEmotion(Emotion emotion);
 
     /**
-     * Returns the moments that happened in the given month and year.
+     * Returns the moments that happened on the given date.
      *
-     * @param month the month to filter by (1-12)
-     * @param year the year to filter by
-     * @return the list of moments that happened in that month
+     * @param date the date to filter by
+     * @return the list of moments that happened on that date
      */
-    List<Moment> filterByMonth(int month, int year);
+    List<Moment> filterByDate(LocalDate date);
 }

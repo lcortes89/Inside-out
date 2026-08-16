@@ -97,35 +97,28 @@
   - **When** I enter text that doesn't correspond to any emotion
   - **Then** an error message is shown
 
-## HU-05 — Filter by month
+## HU-05 — Filter by date
 
 **As a** user
-**I want** to retrieve the lived moments from a given month
-**So that** I can look back on what I lived that month
+**I want** to retrieve the lived moments from a specific date
+**So that** I can look back on what I lived that day
 
 **Acceptance criteria**
 
-- **Scenario 1: Filter by a month with results**
-  - **Given** moments with a date in May 2024 exist
-  - **When** I select "Filter moments", choose to filter by date and enter the month "05/2024"
-  - **Then** only the moments that happened in May 2024 are shown
+- **Scenario 1: Filter by a date with results**
+  - **Given** a moment with date 15/05/2024 exists
+  - **When** I select "Filter moments", choose to filter by date and enter "15/05/2024"
+  - **Then** only the moments that happened on that date are shown
 
-- **Scenario 2: Filter by a month with no results**
-  - **Given** no moment exists in the given month
-  - **When** I filter by the month "01/2020"
-  - **Then** a message indicating there are no moments in that month is shown
+- **Scenario 2: Filter by a date with no results**
+  - **Given** no moment exists on the given date
+  - **When** I filter by the date "01/01/2020"
+  - **Then** a message indicating there are no moments on that date is shown
 
-- **Scenario 3: Month out of range**
-  - **Given** I am filtering by month
-  - **When** I enter a month number outside 1–12
-  - **Then** an error message is shown
-
-- **Scenario 4: Invalid input format**
-  - **Given** I am filtering by month
-  - **When** I enter text or a value that doesn't match the mm/yyyy format
-  - **Then** an error message is shown
-
-> **Note:** the original wording says "en un mes determinado" (a given month). The console example in the assignment shows a full date instead, which is ambiguous. This document follows the literal "by month" interpretation (format mm/yyyy), matching a classmate's independently-built solution. If in doubt, confirm with the instructor which interpretation is expected.
+- **Scenario 3: Invalid date format**
+  - **Given** I am filtering by date
+  - **When** I enter the date in a format other than dd/mm/yyyy
+  - **Then** an error message indicating the correct format is shown
 
 ## HU-06 — Exit the program
 

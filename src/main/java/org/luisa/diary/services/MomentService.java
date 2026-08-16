@@ -14,9 +14,6 @@ import org.luisa.diary.repositories.MomentRepository;
  */
 public class MomentService implements MomentServiceContract {
 
-    private static final int MIN_MONTH = 1;
-    private static final int MAX_MONTH = 12;
-
     private final MomentRepository momentRepository;
 
     /**
@@ -57,16 +54,8 @@ public class MomentService implements MomentServiceContract {
         return this.momentRepository.findByEmotion(emotion);
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws IllegalArgumentException if the month is outside 1-12
-     */
     @Override
-    public List<Moment> filterByMonth(int month, int year) {
-        if (month < MIN_MONTH || month > MAX_MONTH) {
-            throw new IllegalArgumentException("El mes debe estar entre 1 y 12.");
-        }
-        return this.momentRepository.findByMonth(month, year);
+    public List<Moment> filterByDate(LocalDate date) {
+        return this.momentRepository.findByDate(date);
     }
 }
