@@ -2,7 +2,6 @@ package org.luisa.diary.services;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import org.luisa.diary.contracts.MomentServiceContract;
 import org.luisa.diary.models.Emotion;
 import org.luisa.diary.models.Moment;

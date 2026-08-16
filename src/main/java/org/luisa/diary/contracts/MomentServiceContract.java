@@ -2,7 +2,6 @@ package org.luisa.diary.contracts;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import org.luisa.diary.models.Emotion;
 import org.luisa.diary.models.Moment;
 

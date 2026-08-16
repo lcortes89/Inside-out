@@ -1,7 +1,6 @@
 package org.luisa.diary;
 
 import java.util.Scanner;
-
 import org.luisa.diary.controllers.MomentController;
 import org.luisa.diary.repositories.MomentRepository;
 import org.luisa.diary.services.MomentService;

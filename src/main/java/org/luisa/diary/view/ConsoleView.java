@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
-
 import org.luisa.diary.controllers.MomentController;
 import org.luisa.diary.models.Emotion;
 import org.luisa.diary.models.Moment;
@@ -56,7 +55,9 @@ public class ConsoleView {
                 case OPTION_LIST -> listMoments();
                 case OPTION_DELETE -> deleteMoment();
                 case OPTION_FILTER -> filterMoments();
-                case OPTION_EXIT -> exit = true;
+                case OPTION_EXIT -> {
+                    exit = true;
+                }
                 default -> printError("Opción no válida.");
             }
         }

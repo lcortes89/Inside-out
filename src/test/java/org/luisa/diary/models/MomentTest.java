@@ -1,11 +1,9 @@
 package org.luisa.diary.models;
 
+import java.time.LocalDate;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-
-import java.time.LocalDate;
-
 import org.junit.jupiter.api.Test;
 
 /**
