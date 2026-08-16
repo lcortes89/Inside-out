@@ -67,7 +67,7 @@ public class ConsoleView {
     private void printMenu() {
         System.out.println();
         System.out.println("+=========================================+");
-        System.out.println("|          -` ́- MI DIARIO -` ́-            |");
+        System.out.println("|          -`´- MI DIARIO -`´-            |");
         System.out.println("+=========================================+");
         System.out.println("|  1. Añadir momento                      |");
         System.out.println("|-----------------------------------------|");
