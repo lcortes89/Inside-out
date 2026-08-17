@@ -1,6 +1,6 @@
 # Mi Diario (Inside Out Diary)
 
-🔗 [Repositorio en GitHub](https://github.com/lcortes89/inside-out-diary)
+🔗 [Repositorio en GitHub](https://github.com/lcortes89/Inside-out/)
 
 Aplicación de consola para gestionar momentos vividos: cada momento tiene un título, una descripción, una emoción asociada y una fecha. Construida con arquitectura en capas (models, repositories, contracts, services, controllers, view), un repositorio en memoria basado en `Map`, y tests unitarios con JUnit 5, Hamcrest y Mockito.
 
@@ -16,6 +16,7 @@ Aplicación de consola para gestionar momentos vividos: cada momento tiene un t�
 - [📋 Historias de usuario](#user-stories)
 - [🗺 Diagramas UML](#diagrams)
 - [🛠 Tecnologías](#technologies)
+- [📦 Pre-requisitos](#prerequisites)
 - [⚙ Instalación](#installation)
 - [▶ Uso](#usage)
 - [🧪 Tests y cobertura](#testing)
@@ -314,7 +315,19 @@ Miniaturas — haz clic en cualquiera para ver la imagen completa (SVG, se puede
 - <img src="https://img.shields.io/badge/Markdown-000000?logo=markdown&logoColor=white" alt="Markdown" align="middle"> — Lenguaje de marcado del README
 - <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" alt="Git" align="middle"> <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub" align="middle"> — Control de versiones y alojamiento del proyecto
 
-[← Diagramas UML](#diagrams) • [↑ Índice](#index) • [Instalación →](#installation)
+[← Diagramas UML](#diagrams) • [↑ Índice](#index) • [Pre-requisitos →](#prerequisites)
+
+<a id="prerequisites"></a>
+
+## Pre-requisitos
+
+Antes de clonar y ejecutar el proyecto, necesitas tener instalado:
+
+- [Java 21 (JDK)](https://www.oracle.com/java/technologies/downloads/#java21)
+- [Maven 3.6.3 o superior](https://maven.apache.org/download.cgi)
+- [Git](https://git-scm.com/downloads)
+
+[← Tecnologías](#technologies) • [↑ Índice](#index) • [Instalación →](#installation)
 
 <a id="installation"></a>
 
